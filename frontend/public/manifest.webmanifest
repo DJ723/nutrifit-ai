@@ -1,0 +1,48 @@
+{
+  "name": "NutriFit AI 健康轻食营养顾问平台",
+  "short_name": "NutriFit",
+  "description": "智能热量管理、饮食记录与 AI 营养顾问",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f8f3",
+  "theme_color": "#10251c",
+  "categories": ["health", "lifestyle", "fitness"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "记录热量",
+      "short_name": "记录",
+      "url": "/?tab=calories",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "AI 咨询",
+      "short_name": "咨询",
+      "url": "/?tab=knowledge",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

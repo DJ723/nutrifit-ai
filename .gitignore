@@ -1,0 +1,40 @@
+# ---- 凭据（最重要）----
+.env
+.env.*
+!.env.example
+backend/config/config.yaml
+*.pem
+*.key
+
+# ---- Python ----
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# ---- 前端 ----
+node_modules/
+node_modules.*.bak/
+dist/
+.vite/
+*.tsbuildinfo
+
+# ---- 本地过程文档（含调试记录与内部交接，不进公开仓库）----
+本地环境说明.md
+
+# ---- 第三方教学资料（卖家原创课件，含水印，不进公开仓库）----
+*.pdf
+
+# ---- 运行时数据与日志（含个人身体数据与饮食记录）----
+backend/storage/
+storage/
+logs/
+*.log
+*.pid
+
+# ---- 环境 ----
+.DS_Store
+.idea/
+.vscode/

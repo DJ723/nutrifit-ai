@@ -1,0 +1,17 @@
+# NutriFit AI 后端真实依赖（macOS / Python 3.10+）
+# 原 requirements.txt 是从作者机器上 pip freeze 的全量快照，
+# 含 torch(+cu121)、paddleocr、bitsandbytes 等本项目代码完全未使用的包，且在 macOS 上无法安装。
+# 本文件只列 app/ 目录实际 import 的包。
+#
+# 安装：
+#   cd backend
+#   python3 -m venv .venv
+#   .venv/bin/python -m pip install -r requirements-min.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+fastapi
+uvicorn[standard]
+pydantic
+PyYAML
+openai
+scikit-learn
+python-multipart
