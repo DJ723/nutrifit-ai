@@ -89,11 +89,13 @@ backend/.env.example
 创建 `.env` 或在系统环境变量中配置：
 
 ```text
-OPENAI_API_KEY=your_api_key_here
-OPENAI_BASE_URL=https://www.dmxapi.cn/v1
-NUTRIFIT_CHAT_MODEL=gpt-5-mini
-NUTRIFIT_VISION_MODEL=gpt-5-mini
+OPENAI_API_KEY=your_deepseek_api_key_here
+OPENAI_BASE_URL=https://api.deepseek.com
+NUTRIFIT_CHAT_MODEL=deepseek-flash
+NUTRIFIT_VISION_MODEL=deepseek-flash
 ```
+
+`backend/.env` 已被 `.gitignore` 排除，密钥不会进入仓库。
 
 未配置 API Key 时，RAG 问答会返回抽取式摘要，图片识别会使用默认估算，不影响项目演示。
 
@@ -105,7 +107,7 @@ NUTRIFIT_VISION_MODEL=gpt-5-mini
 backend/config/config.yaml
 ```
 
-该文件集中管理 API Key、Base URL、模型名称、RAG 参数、记忆参数、隐私开关和功能开关。环境变量优先级高于 YAML。
+该文件集中管理 Base URL、模型名称、RAG 参数、记忆参数、隐私开关和功能开关。**API Key 不写在这里**（`llm.api_key` 保持空字符串），统一由 `backend/.env` 提供，环境变量优先级高于 YAML。
 
 ## Agent 模式
 

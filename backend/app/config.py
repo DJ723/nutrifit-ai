@@ -19,6 +19,26 @@ LONG_MEMORY_DIR = MEMORY_DIR / "long_term"
 BODY_METRICS_FILE = LONG_MEMORY_DIR / "body_metrics.json"
 
 
+def _load_dotenv() -> None:
+    """读取 backend/.env 与项目根 .env，把变量注入环境。
+
+    已存在的真实环境变量优先，不会被 .env 覆盖。
+    密钥只放在 .env（已 gitignore），配置文件里保持空值。
+    """
+    for candidate in (BASE_DIR / "backend" / ".env", BASE_DIR / ".env"):
+        if not candidate.exists():
+            continue
+        for raw in candidate.read_text(encoding="utf-8").splitlines():
+            line = raw.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, _, value = line.partition("=")
+            key = key.strip()
+            value = value.strip().strip('"').strip("'")
+            if key and key not in os.environ:
+                os.environ[key] = value
+
+
 def deep_merge(base: dict, override: dict) -> dict:
     result = dict(base)
     for key, value in (override or {}).items():
@@ -55,6 +75,7 @@ def load_settings() -> dict:
     return settings
 
 
+_load_dotenv()
 SETTINGS = load_settings()
 OPENAI_API_KEY = SETTINGS["llm"].get("api_key", "")
 OPENAI_BASE_URL = SETTINGS["llm"].get("base_url", "https://www.dmxapi.cn/v1")
